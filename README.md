@@ -21,14 +21,31 @@ require 'capistrano/capistrano-ec2-utils'
 
 ## Configuring
 
+### Via YAML
+
+AWS credentials will attempt to load from `config/aws.yml` by default and
+should be grouped by environment - the same format as the aws-sdk gem uses.
+
+You can change the path to the yaml file if required:
+
+```ruby
+set :ec2_config, "config/ec2.yml"
+```
+
+### Via Capistrano config
+
 ```ruby
 set :ec2_access_key_id,     "YOUR_ACCESS_KEY"
 set :ec2_secret_access_key, "YOUR_SECRET_ACCESS_KEY"
 set :ec2_security_group,    "YOUR_EC2_SECURITY_GROUP"
+```
 
-# optionally configure security group ports that are managed
-set :ec2_ports, [2222]
+You can also optionally configure security group ports that are managed
+or your aws region
 
+```ruby
+set :ec2_ports, [2222]        # defaults to [22]
+set :ec2_region, 'us-west-2'
 ```
 
 ## Usage
