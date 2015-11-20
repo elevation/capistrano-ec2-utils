@@ -56,9 +56,10 @@ namespace :ec2 do
       file = YAML.load_file(config_location)
       config = file[fetch(:rails_env).to_s]
       if config
-        set :ec2_access_key_id, config['access_key_id'] if config['access_key_id']
-        set :ec2_secret_access_key, config['secret_access_key'] if config['secret_access_key']
-        set :ec2_region, config['region'] if config['region']
+        ['access_key_id', 'secret_access_key', 'region'].each do |key|
+          sym = "ec2_#{key}".to_sym
+          set sym, config[key] if config[key] && fetch(sym).blank?
+        end
       end
     end
 
