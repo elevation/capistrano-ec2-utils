@@ -3,6 +3,8 @@
 Capistrano plugin providing some useful utilities for interacting with EC2.
 Currently only provides management of security group ports.
 
+NOTE: Uses Version 1 of the AWS SDK gem.
+
 ## Installation
 
 Add the gem to your `Gemfile` and run `bundle install`:

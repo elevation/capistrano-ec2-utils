@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_dependency 'capistrano', '~> 3.1'
-  s.add_dependency 'aws-sdk'
+  s.add_dependency 'aws-sdk-v1'
 end
