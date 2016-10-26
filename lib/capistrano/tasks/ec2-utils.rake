@@ -35,8 +35,8 @@ namespace :ec2 do
     end
   end
 
+  desc "Close ports in security group for all ip addresses except yours"
   task :cleanup_ips do
-    desc "Close ports in security group for all ip addresses except yours"
     security_group.ingress_ip_permissions.each do |permission|
       if ports_in_range?(permission.port_range)
         permission.ip_ranges.each do |ip|
