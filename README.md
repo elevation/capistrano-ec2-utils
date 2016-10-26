@@ -18,7 +18,7 @@ end
 Then add the gem to your `Capfile`:
 
 ```ruby
-require 'capistrano/capistrano-ec2-utils'
+require 'capistrano/ec2-utils'
 ```
 
 ## Configuring
